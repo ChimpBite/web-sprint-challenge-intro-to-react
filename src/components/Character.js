@@ -5,7 +5,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
 import { grey } from '@material-ui/core/colors';
 import Box from '@material-ui/core/Box';
 
@@ -27,9 +26,8 @@ export const Character = (props) => {
   }));
 
   const classes = useStyles();
-
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} raised={true}>
       <CardHeader
         avatar={
           <Avatar aria-label='starwars' className={classes.avatar}>

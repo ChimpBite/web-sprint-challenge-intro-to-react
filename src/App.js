@@ -17,10 +17,6 @@ const App = () => {
     axios
       .get(`${API_URL}`)
       .then((res) => {
-        console.log('DATA:', res.data.results);
-        res.data.results.map((data) => {
-          return console.log(data.name);
-        });
         setCharacters(res.data.results);
       })
       .catch((err) => {
@@ -50,7 +46,7 @@ const App = () => {
             >
               {characters.map((character) => (
                 <Box component='div' m={1}>
-                  <Character character={character} />
+                  <Character key={character.id} character={character} />
                 </Box>
               ))}
             </Box>
