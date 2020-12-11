@@ -30,11 +30,19 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+Its a cpmponent based JS library, breaks pages into components, keeps from having to manually changing the DOM
+
 1. Describe component state.
+
+state is managed within the component and holds information that influences the output of render
 
 1. Describe props.
 
+props get passed to the component and holds information that influences the output of render
+
 1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+
+A side effect is anything that affects something outside the scope of the function being executed
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 

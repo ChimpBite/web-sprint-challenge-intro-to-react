@@ -5,7 +5,6 @@ import Character from './components/Character';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import './App.css';
 
 const App = () => {
   // Setting State
@@ -46,7 +45,7 @@ const App = () => {
             >
               {characters.map((character) => (
                 <Box component='div' m={1}>
-                  <Character key={character.id} character={character} />
+                  <Character character={character} />
                 </Box>
               ))}
             </Box>

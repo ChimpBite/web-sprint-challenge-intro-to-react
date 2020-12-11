@@ -9,6 +9,7 @@ import { grey } from '@material-ui/core/colors';
 import Box from '@material-ui/core/Box';
 
 export const Character = (props) => {
+  // setting custom theme styles
   const useStyles = makeStyles((theme) => ({
     root: {
       minWidth: 300,
@@ -27,6 +28,7 @@ export const Character = (props) => {
 
   const classes = useStyles();
   return (
+    // Cards displaying the mapped characters
     <Card className={classes.root} raised={true}>
       <CardHeader
         avatar={
