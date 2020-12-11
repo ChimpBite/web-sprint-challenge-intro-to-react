@@ -2,50 +2,64 @@ import React, { useEffect, useState } from 'react';
 import { API_URL } from './api/API';
 import axios from 'axios';
 import Character from './components/Character';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 import './App.css';
 
 const App = () => {
   // Setting State
-  const [character, setCharacter] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   // Grabing API, handling side effects
 
   useEffect(() => {
-    character.forEach((e) => {
-      axios
-        .get(`${API_URL}`)
-        .then((res) => {
-          setCharacter(res.data.result);
-        })
-        .catch((err) => {
-          console.log('Error:', err);
+    axios
+      .get(`${API_URL}`)
+      .then((res) => {
+        console.log('DATA:', res.data.results);
+        res.data.results.map((data) => {
+          return console.log(data.name);
         });
-    }, []);
-  });
+        setCharacters(res.data.results);
+      })
+      .catch((err) => {
+        console.log('Error:', err);
+      });
+  }, []);
 
   return (
-    <div className='App'>
-      <h1 className='Header'>Characters</h1>
-      {character ? (
-        <>
-          <Character
-            height={character.height}
-            hairColor={character.hairColor}
-            skinColor={character.skinColor}
-            eyeColor={character.eyeColor}
-            birthYear={character.birthYear}
-            gender={character.gender}
-            homeworld={character.homeworld}
-            films={character.films}
-            species={character.species}
-            vehicles={character.vehicles}
-            starships={character.starships}
-          />
-        </>
-      ) : (
-        'Loading....'
-      )}
-    </div>
+    <Box component='div'>
+      <Box component='div' marginTop={5} fontFamily='Space Mono, monospace'>
+        <Typography variant='h1' component='h1' align='center'>
+          Star Wars Characters
+        </Typography>
+      </Box>
+
+      <Container>
+        {characters ? (
+          <>
+            <Box
+              boxShadow={5}
+              borderRadius={10}
+              display='flex'
+              flexWrap='wrap'
+              alignContent='space-evenly'
+              justifyContent='space-evenly'
+              margin={5}
+            >
+              {characters.map((character) => (
+                <Box component='div' m={1}>
+                  <Character character={character} />
+                </Box>
+              ))}
+            </Box>
+          </>
+        ) : (
+          'Loading....'
+        )}
+      </Container>
+    </Box>
   );
 };
 
